@@ -20,15 +20,20 @@ public class EvenArray {
         int number = Integer.parseInt(scan.nextLine());
 
         int[] evenNumbers = new int[number]; // creates a new array with n elements
-        int min = 2;
+        int min = 0;
         int max = 100;
-        int randomNumber = min + (int) (Math.random() * (max - min)); // formula to generate random number between min
-                                                                      // and max
+        int randomNumber;
 
-        if (randomNumber % 2 == 0) {
-            for (int i = 0; i < number; i++) {
-                evenNumbers[i] = randomNumber;
+        for (int i = 0; i < evenNumbers.length; i++) {
+            randomNumber = min + (int) (Math.random() * (max - min));
+
+            if (randomNumber % 2 == 1 || randomNumber == 0) {
+                while (randomNumber % 2 == 1 || randomNumber == 0) {
+                    randomNumber = min + (int) (Math.random() * (max - min));
+                }
             }
+
+            evenNumbers[i] = randomNumber;
         }
 
         for (int i = 0; i < evenNumbers.length; i++) {
