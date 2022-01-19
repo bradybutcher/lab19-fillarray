@@ -9,30 +9,32 @@
         (0 – number inclusive).
     -------------------- Program Information --------------------  */
 
+import java.util.*;
+
 public class EvenArray {
 
     public static void main(String[] args) {
-        int[] evenNumbers = new int[10]; // creates a new array with 10 elements
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Enter the number of elements in the array: ");
+        int number = Integer.parseInt(scan.nextLine());
+
+        int[] evenNumbers = new int[number]; // creates a new array with n elements
         int min = 2;
         int max = 100;
         int randomNumber = min + (int) (Math.random() * (max - min)); // formula to generate random number between min
                                                                       // and max
 
-        while (randomNumber % 2 == 0) {
-            evenNumbers[0] = randomNumber;
-            evenNumbers[1] = randomNumber;
-            evenNumbers[2] = randomNumber;
-            evenNumbers[3] = randomNumber;
-            evenNumbers[4] = randomNumber;
-            evenNumbers[5] = randomNumber;
-            evenNumbers[6] = randomNumber;
-            evenNumbers[7] = randomNumber;
-            evenNumbers[8] = randomNumber;
-            evenNumbers[9] = randomNumber;
+        if (randomNumber % 2 == 0) {
+            for (int i = 0; i < number; i++) {
+                evenNumbers[i] = randomNumber;
+            }
         }
 
         for (int i = 0; i < evenNumbers.length; i++) {
             System.out.println(i + " " + evenNumbers[i]);
         }
+
+        scan.close();
     }
 }
